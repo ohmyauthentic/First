@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/repeat_bg"
+    android:orientation="vertical" >
+
+    <TextView
+        android:id="@+id/uptext"
+        android:layout_width="match_parent"
+        android:layout_height="35dp"
+        android:layout_gravity="center"
+        android:background="#BA4E4D"
+        android:gravity="center_vertical|center_horizontal|center"
+        android:text="上传"
+        android:textColor="#F5F5F0"
+        android:textSize="18sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" >
+
+        <ExpandableListView
+            android:id="@+id/uped"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/repeat_bg" >
+
+        </ExpandableListView>
+
+        <ExpandableListView
+            android:id="@+id/uping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/repeat_bg" >
+
+        </ExpandableListView>
+
+    </LinearLayout>
+
+</LinearLayout>
