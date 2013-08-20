@@ -18,6 +18,13 @@ public class Download extends Activity{
 */
 
 
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -28,8 +35,11 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;
+import android.view.View.OnClickListener;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.LinearLayout.LayoutParams;
+import android.widget.Button;
 import android.widget.ProgressBar;
 import android.widget.SimpleAdapter;
 import android.widget.TextView;
@@ -39,7 +49,8 @@ import Db.*;
 
 public class Download extends ListActivity {
         // 固定下载的资源路径，这里可以设置网络上的地址
-        private static final String URL = "http://10.0.0.80:8080/xiangce/";
+        private EditText URL;
+        private Button button;
         // 固定存放下载的音乐的路径：SD卡目录下
         private static final String SD_PATH = "/mnt/sdcard/";
         // 存放各个下载器
@@ -78,40 +89,17 @@ public class Download extends ListActivity {
         public void onCreate(Bundle savedInstanceState) {
                 super.onCreate(savedInstanceState);
                 setContentView(R.layout.download);
-                showListView();
+                URL=(EditText)findViewById(R.id.editText_url);
+               
         }
 
         // 显示listView，这里可以随便添加音乐
-        private void showListView() {
-                List<Map<String, String>> data = new ArrayList<Map<String, String>>();
-                Map<String, String> map = new HashMap<String, String>();
-                map.put("name", "mm.mp3");
-                data.add(map);
-                map = new HashMap<String, String>();
-                map.put("name", "pp.mp3");
-                data.add(map);
-                map = new HashMap<String, String>();
-                map.put("name", "tt.mp3");
-                data.add(map);
-                map = new HashMap<String, String>();
-                map.put("name", "You.mp3");
-                data.add(map);
-                SimpleAdapter adapter = new SimpleAdapter(this, data,
-                                R.layout.udfile, new String[] { "name" },
-                                new int[] { R.id.icontrol });
-                setListAdapter(adapter);
-        }
-
-        /**
-         * 83 * 响应开始下载按钮的点击事件 84
-         */
+       
         public void startDownload(View v) {
                 // 得到textView的内容
                 LinearLayout layout = (LinearLayout) v.getParent();
-                String musicName = ((TextView) layout
-                                .findViewById(R.id.icontrol)).getText().toString();
-                String urlstr = URL + musicName;
-                String localfile = SD_PATH + musicName;
+                String urlstr = URL.getText().toString();
+                String localfile = SD_PATH ;
                 // 设置下载线程数为4，这里是我为了方便随便固定的
                 int threadcount = 4;
                 // 初始化一个downloader下载器
@@ -155,9 +143,8 @@ public class Download extends ListActivity {
          */
         public void pauseDownload(View v) {
                 LinearLayout layout = (LinearLayout) v.getParent();
-                String musicName = ((TextView) layout
-                                .findViewById(R.id.icontrol)).getText().toString();
-                String urlstr = URL + musicName;
+                
+                String urlstr = URL.getText().toString();
                 downloaders.get(urlstr).pause();
         }
 }

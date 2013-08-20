@@ -70,9 +70,9 @@ public class MainMenu extends Activity {
        
        final ArrayList<View> views = new ArrayList<View>();
        Intent intent= new Intent(context,FileM.class);
-       
+       Intent intent2= new Intent(context,Download.class);
        views.add(getView("",intent));
-       views.add(view2);
+       views.add(getView("", intent2));
        views.add(view3);
        views.add(view4);     
 		TabPager.setAdapter(new MyPagerAdapter(views));

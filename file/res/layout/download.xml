@@ -19,20 +19,31 @@
 
     <LinearLayout
         android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+        <EditText
+    	android:layout_weight="1" 
+    	android:id="@+id/editText_url" 
+    	android:layout_height="wrap_content" 
+    	android:layout_width="0dp"
+    	android:lines="1" />
+
+    <Button
+        android:id="@+id/button_go"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="2dp"
+        android:layout_marginRight="4dp"
+        android:background="@drawable/plus" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical" >
 
         <ExpandableListView
-            android:id="@+id/downed"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:background="@drawable/repeat_bg" >
-
-        </ExpandableListView>
-
-        <ExpandableListView
-            android:id="@+id/downing"
+            android:id="@+id/download"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"

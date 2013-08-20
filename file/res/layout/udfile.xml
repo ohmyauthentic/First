@@ -40,7 +40,7 @@
             android:layout_weight="0.6" >
 
             <ImageView
-                android:id="@+id/icontrol"
+                android:id="@+id/play"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -52,7 +52,7 @@
                 android:layout_height="wrap_content" />
 
             <ProgressBar
-                android:id="@+id/progressBar1"
+                android:id="@+id/load_progress"
                 style="@style/ProgressBar_Mini"
                 android:layout_width="222dp"
                 android:layout_height="wrap_content"

@@ -4,6 +4,6 @@
     <string name="no_permission">没有权限</string><string name="app_name">file</string>
     <string name="hello_world">Hello world!</string>
     <string name="menu_settings">Settings</string>
-    
+    <string name="go">下载</string>
 
 </resources>
